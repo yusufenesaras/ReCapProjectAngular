@@ -1,14 +1,31 @@
-<table *ngIf="this.getBrands" class="table table-primary table-striped">
+
+
+<!-- <h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz.</h5> -->
+<table style="text-align: center; margin: auto; width: 250px;">
   <thead>
-    <tr>
-      <th scope="col">BrandId</th>
-      <th scope="col">BrandName</th>
-    </tr>
+    <button [class] = "getAllCars()" routerLink = "/cars"
+    class="btn btn-primary btn-lg active col-md-12" role="button" aria-pressed="true" style="border-radius: 20px;">
+      Tümünü Listele
+    </button> <br/>
   </thead>
-  <tbody>
-    <tr *ngFor="let brand of brands">
-      <td>{{ brand.brandId }}</td>
-      <td>{{ brand.brandName }}</td>
-    </tr>
-  </tbody>
 </table>
+  <table *ngIf="this.getBrands" class="container" style="border-radius: 10px;">
+    <thead>
+      <tr>
+        <th scope="col"><h1>Brands</h1></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr (click)="setCurrentBrand(brand)"
+      routerLink = "/cars/brand/{{brand.brandId}}"
+      *ngFor="let brand of brands"
+      [class]="getCurrentBrandClass(brand)"
+      >
+        <td style="cursor: pointer;">{{brand.brandName}}</td>
+      </tr>
+    </tbody>
+  </table> <br/>
+
+
+
+  

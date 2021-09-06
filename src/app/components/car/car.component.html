@@ -1,29 +1,58 @@
-<div
-  *ngIf="dataLoaded == false"
-  class="spinner-border text-primary"
-  role="status"
->
+<div *ngIf="dataLoaded == false">
   <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded == true" class="table table-primary table-striped">
-  <thead>
-    <tr>
-      <th scope="col">CarName</th>
-      <th scope="col">BrandName</th>
-      <th scope="col">ColorName</th>
-      <th scope="col">ModelYear</th>
-      <th scope="col">DailyPrice</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let car of cars">
-      <td>{{ car.carName }}</td>
-      <td>{{ car.brandName }}</td>
-      <td>{{ car.colorName }}</td>
-      <td>{{ car.modelYear }}</td>
-      <td>{{ car.dailyPrice }}</td>
-      <td>{{ car.description }}</td>
-    </tr>
-  </tbody>
-</table>
+<section *ngIf="dataLoaded == true" class="wrapper">
+  <div *ngFor="let car of cars" class="container">
+    <br />
+    <div class="row">
+      <div class="col-sm-12">
+        <div
+          class="card text-white card-has-bg click-col"
+          style="
+            background-image: url('https://source.unsplash.com/600x900/?tech,car');
+          "
+        >
+          <img
+            class="card-img d-none"
+            src="https://source.unsplash.com/600x900/?tech,car"
+            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?"
+          />
+          <div class="card-img-overlay d-flex flex-column">
+            <div class="card-body">
+              <h3 class="card-meta mb-3">Kiralık</h3>
+              <h4 class="card-title mt-0">
+                <a class="text-white" herf="#" style="text-decoration: none">{{
+                  car.description
+                }}</a>
+              </h4>
+              <br />
+              <h3><i class="far fa-clock"></i> {{ car.modelYear }} Model</h3>
+            </div>
+            <div class="card-footer">
+              <div class="media">
+                <img
+                  class="mr-12 rounded-circle"
+                  src="https://conceptdraw.com/a1706c3/p16/preview/640/pict--manager-business-people-vector-stencils-library"
+                  alt="Generic placeholder image"
+                  style="max-width: 50px"
+                />
+                <div class="media-body">
+                  <h6 class="my-0 text-white d-block">Yusuf Enes</h6>
+                  <small>Product Manager</small>
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              style="color: white; border-radius: 20px"
+              routerLink="/cars/carDetail/{{ car.carId }}"
+            >
+              Detaylar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

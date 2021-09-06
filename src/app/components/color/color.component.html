@@ -1,1 +1,17 @@
-<p>color works!</p>
+
+<table *ngIf="this.getColors" style="width: 308px" class="container" style="border-radius: 10px;">
+  <thead>
+    <tr>
+      <th scope="col"><h1>Colors</h1></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr (click)="setCurrentColor(color)"
+    routerLink="/cars/color/{{ color.colorId }}"
+    *ngFor="let color of colors"
+    [class]="getCurrentColorClass(color)"
+    >
+      <td style="cursor: pointer;">{{color.colorName}}</td>
+    </tr>
+  </tbody>
+</table> <br/>

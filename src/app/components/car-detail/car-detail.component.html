@@ -1,0 +1,59 @@
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<div class="container-fluid">
+  <h1 class="text-md-center">
+    <span class="o">C</span><span class="o">ar</span><span class="o1">De</span>
+    <span class="g">ta</span><span class="l">i</span><span class="l">l</span>
+  </h1>
+  <div class="container">
+      <div 
+        *ngFor="let image of carImages"
+        [class]="getCurrentImageClass(image)"
+        class="container-fluid"
+      >
+        <img 
+        style="text-align: center; margin: auto;"
+          [src]="getPhotoPath(image)"
+          class="img-thumbnail img-fluid m-x-auto d-block"
+          width="450px"
+        />
+        <div class="caption text-md-center"><br/>
+          <em>The easiest way to rent.</em>
+        </div>
+        <hr />
+        <div class="card card-1 text-md-center" id="card1">
+          <table  class="table table-hover">
+            <tbody *ngFor="let car of cars">
+              <tr>
+                <td><span class="bold">Marka</span></td>
+                <td>
+                  <p>
+                    {{ car.brandName }}
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="bold"><th>Renk</th></span></td>
+                <td>{{ car.colorName }}</td>
+              </tr>
+              <tr>
+                <td><span class="bold">Model Yılı</span></td>
+                <td colspan="2">{{ car.modelYear }}</td>
+              </tr>
+              <tr>
+                <td><span class="bold">Günlük Fiyat</span></td>
+                <td colspan="2">
+                  {{ car.dailyPrice }} ₺
+                </td>
+              </tr>
+              <tr>
+                <td><span class="bold">Description</span></td>
+                <td colspan="2">
+                  {{ car.description }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>

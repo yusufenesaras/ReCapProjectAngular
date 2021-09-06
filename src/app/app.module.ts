@@ -10,8 +10,9 @@ import { NaviComponent } from './components/navi/navi.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
-import { CarImagesComponent } from './components/car-images/car-images.component';
 import {enableProdMode} from '@angular/core';
+import { FooterComponent } from './components/footer/footer.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
 
 enableProdMode();
 
@@ -24,7 +25,8 @@ enableProdMode();
     ColorComponent,
     CustomerComponent,
     RentalComponent,
-    CarImagesComponent
+    FooterComponent,
+    CarDetailComponent,
   ],
   imports: [
     BrowserModule,
